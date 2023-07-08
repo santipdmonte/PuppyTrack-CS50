@@ -1,5 +1,13 @@
 # PuppyTrack
 #### Video Demo:  https://youtu.be/nQlMFLiX5Po
+
+#### How to use it:
+`git clone https://github.com/santipdmonte/PuppyTrack-CS50/edit/main/README.md`
+
+`pip install -r requirements.txt`
+
+run the `app.py` file
+
 #### Description:
 PuppyTrack is an innovative web application designed to enhance the efficiency of veterinary clinics by providing separate sections for consultations and client reception. Our platform revolutionizes the traditional paper-based process, facilitating seamless online communication between veterinarians and receptionists.
 
