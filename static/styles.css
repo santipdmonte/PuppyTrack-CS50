@@ -1,0 +1,28 @@
+.vet-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .vet-form form input{
+    margin: 1vh;
+    }
+
+    .vet-form form button{
+    margin: 1vh;
+    }
+
+    .vet-form-item{
+    display: flex;
+    }
+
+    .vet-form-item .amount{
+    width: 60px;
+    }
+
+    .vet-form-item .price{
+    width: 130px;
+    }
+
+
+

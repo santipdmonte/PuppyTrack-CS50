@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Front
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.3/rangeslider.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.3/rangeslider.min.js"></script>
+{% endblock %}
+
+{% block main %}
+
+    <h2 class="mb-3">Front</h2>
+
+    <table class="table table-striped custome-table">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for consult in consults %}
+          <tr>
+              <td>
+                <div class="d-flex flex-column justify-content-between">
+                  <span class="m-1">{{ consult['name'] }}</span>
+                  {% if consult['consult_observation'] %}
+                  <span class="m-1">[{{ consult['consult_observation'] }}]</span>
+                  {% endif %}
+                  <form action="/front" method="post">
+                    <input type="hidden" name="consult_id" value="{{ consult['id'] }}">
+                    <span class="m-1"><button type="submit" class="btn btn-outline-info btn-sm">Check</button></span>
+                  </form>
+                </div>
+              </td>
+              <td colspan="2" class="custom-table">
+                  <table class="table">
+                      <tbody>
+                          {% for service in services %}
+                            {% if service['consult_id'] == consult['id'] %}
+                              <tr>
+                                <td class="w-75">
+                                    {% if service['amount'] > 1 and service['observation'] %}
+                                      (x{{ service['amount'] }}) {{ service['treatment_pharma'] }} [{{ service['observation'] }}]
+                                    {%elif service['observation']%}
+                                      {{ service['treatment_pharma'] }} [{{ service['observation'] }}]
+                                    {%else%}
+                                      {{ service['treatment_pharma'] }}
+                                    {% endif %}
+                                </td class="w-25">
+                                  <td>${{ service['price'] }}</td>
+
+                              </tr>
+                            {% endif %}
+                            {% endfor %}
+                            <tr>
+                                <td></td>
+                                <td><b>Total: ${{ consult['total_price'] }}</b></td>
+                            </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      {% endfor %}
+
+      </tbody>
+    </table>
+
+{% endblock %}
