@@ -2,7 +2,7 @@
 #### Video Demo:  https://youtu.be/nQlMFLiX5Po
 
 #### How to use it:
-`git clone https://github.com/santipdmonte/PuppyTrack-CS50/edit/main/README.md`
+`git clone https://github.com/santipdmonte/PuppyTrack-CS50`
 
 `pip install -r requirements.txt`
 
